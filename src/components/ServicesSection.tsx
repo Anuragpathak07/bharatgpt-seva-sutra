@@ -26,43 +26,38 @@ const suggestedQueries = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-24 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-display font-bold mb-6">
-            <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-              Interactive Services
-            </span>
+    <section className="py-32 px-6 bg-background">
+      <div className="max-w-6xl mx-auto">
+        {/* Section header - Apple style */}
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-8 text-foreground">
+            Get help with<br />
+            <span className="font-medium">any government service.</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Access 13+ government services through our intelligent dashboard. 
-            Get personalized help for your specific needs.
-          </p>
 
-          {/* Search bar */}
-          <div className="max-w-2xl mx-auto mb-8">
+          {/* Search bar - Apple style */}
+          <div className="max-w-xl mx-auto mb-12">
             <div className="relative">
               <Input 
                 placeholder="How can I help you today?" 
-                className="text-lg py-4 pl-6 pr-16 rounded-2xl border-2 border-primary/20 focus:border-primary shadow-warm"
+                className="text-lg py-4 pl-6 pr-20 rounded-2xl border-0 bg-muted/50 shadow-soft focus:shadow-medium transition-spring backdrop-blur-sm"
               />
               <Button 
                 size="sm" 
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary hover:bg-primary-glow"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-xl btn-apple text-sm px-4"
               >
                 Ask
               </Button>
             </div>
             
             {/* Quick suggestions */}
-            <div className="flex flex-wrap justify-center gap-2 mt-4">
+            <div className="flex flex-wrap justify-center gap-3 mt-6">
               {suggestedQueries.map((query) => (
                 <Button 
                   key={query}
                   variant="outline" 
                   size="sm"
-                  className="text-sm border-muted hover:border-primary hover:bg-primary/5"
+                  className="text-sm rounded-full border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-spring"
                 >
                   {query}
                 </Button>
@@ -71,54 +66,45 @@ export const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Services grid - cleaner Apple grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-20">
           {services.map((service, index) => (
-            <Card 
+            <div 
               key={service.title}
-              className="card-elevated group hover:scale-105 transition-all duration-300 cursor-pointer"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="card-apple p-6 text-center cursor-pointer group transition-spring hover:scale-105"
+              style={{ animationDelay: `${index * 0.02}s` }}
             >
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {service.emoji}
-                </div>
-                <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {service.description}
-                </p>
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="w-full border-primary/20 hover:bg-primary hover:text-primary-foreground"
-                >
-                  Get Help
-                </Button>
-              </CardContent>
-            </Card>
+              <div className="text-3xl mb-3 group-hover:scale-110 transition-spring">
+                {service.emoji}
+              </div>
+              <h3 className="text-sm font-semibold mb-1 text-foreground group-hover:text-primary transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {service.description}
+              </p>
+            </div>
           ))}
         </div>
 
-        {/* Bottom stats */}
-        <div className="mt-20 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        {/* Bottom stats - minimal Apple style */}
+        <div className="text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-3xl mx-auto">
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">2.5M+</div>
-              <div className="text-muted-foreground">Applications Filed</div>
+              <div className="text-3xl font-light text-foreground mb-2">2.5M+</div>
+              <div className="text-sm text-muted-foreground font-medium">Applications</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">98%</div>
-              <div className="text-muted-foreground">Success Rate</div>
+              <div className="text-3xl font-light text-foreground mb-2">98%</div>
+              <div className="text-sm text-muted-foreground font-medium">Success Rate</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-muted-foreground">AI Support</div>
+              <div className="text-3xl font-light text-foreground mb-2">24/7</div>
+              <div className="text-sm text-muted-foreground font-medium">AI Support</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">15min</div>
-              <div className="text-muted-foreground">Avg. Response</div>
+              <div className="text-3xl font-light text-foreground mb-2">15min</div>
+              <div className="text-sm text-muted-foreground font-medium">Response</div>
             </div>
           </div>
         </div>

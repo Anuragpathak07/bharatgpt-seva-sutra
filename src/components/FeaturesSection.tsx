@@ -42,67 +42,59 @@ const features = [
 
 export const FeaturesSection = () => {
   return (
-    <section className="py-24 px-6 bg-gradient-subtle">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-display font-bold mb-6">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Core Features
-            </span>
+    <section className="py-32 px-6 bg-muted/30">
+      <div className="max-w-6xl mx-auto">
+        {/* Section header - Apple minimal style */}
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-8 text-foreground">
+            Everything you need.<br />
+            <span className="font-medium">Nothing you don't.</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Empowering Indian citizens with AI-driven governance solutions that simplify 
-            bureaucratic processes and improve access to public services.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
+            Empowering Indian citizens with AI-driven governance solutions.
           </p>
         </div>
 
-        {/* Features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <Card 
+        {/* Features grid - Apple 3-column style */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+          {features.slice(0, 3).map((feature, index) => (
+            <div 
               key={feature.id} 
-              className="card-elevated card-glow group hover:scale-105 transition-all duration-300"
+              className="card-feature text-center"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-8 text-center h-full flex flex-col">
-                {/* Icon container */}
-                <div className="relative mb-6">
-                  <div className={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br ${feature.gradient} p-1 shadow-warm`}>
-                    <img 
-                      src={feature.icon} 
-                      alt={feature.title}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  </div>
-                  <div className="absolute -top-2 -right-2 text-2xl">{feature.emoji}</div>
+              {/* Large line-style icon */}
+              <div className="mb-8">
+                <div className="w-16 h-16 mx-auto mb-4 text-6xl feature-icon transition-spring">
+                  {feature.emoji}
                 </div>
+              </div>
 
-                {/* Content */}
-                <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground mb-6 flex-grow text-base leading-relaxed">
-                  {feature.description}
-                </p>
-
-                {/* Action button */}
-                <Button 
-                  variant="outline" 
-                  className="w-full border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                >
-                  Get Started
-                </Button>
-              </CardContent>
-            </Card>
+              {/* Content */}
+              <h3 className="text-xl font-semibold mb-4 text-foreground">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed font-light">
+                {feature.description}
+              </p>
+            </div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <Button className="btn-hero text-lg px-12 py-4">
-            Explore All Services →
-          </Button>
+        {/* Fourth feature - full width showcase */}
+        <div className="card-apple p-12 text-center">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-6xl mb-6">{features[3].emoji}</div>
+            <h3 className="text-2xl font-semibold mb-4 text-foreground">
+              {features[3].title}
+            </h3>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed font-light">
+              {features[3].description}
+            </p>
+            <Button className="btn-apple">
+              Try Now
+            </Button>
+          </div>
         </div>
       </div>
     </section>
