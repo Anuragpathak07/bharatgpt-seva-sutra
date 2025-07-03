@@ -254,7 +254,7 @@
   }
   
   .card-feature {
-    @apply group cursor-pointer transition-spring hover:scale-105;
+    @apply cursor-pointer transition-spring hover:scale-105;
   }
   
   .card-feature:hover .feature-icon {
